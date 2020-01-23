@@ -1,6 +1,7 @@
 body {
   background-color: #1e1e1e;
   color: #fff;
+	width: 100%;
 }
 .btn {
   position: relative;
