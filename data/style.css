@@ -1,3 +1,6 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 body {
   background-color: #1e1e1e;
   color: #fff;
@@ -34,7 +37,7 @@ body {
 }
 .logo img {
   max-width: 200px;
-  width: 100%;
+  width: 95%;
   margin: 1em auto 2em;
 }
 label {
@@ -42,16 +45,16 @@ label {
   margin-bottom: 5px;
 }
 .w-100 {
-  width: 100% !important;
+  width: 95% !important;
 }
 
 html,
 body .h-100 {
-  height: 100% !important;
+  height: 95% !important;
 }
 .container {
   max-width: 400px;
-  width: 100%;
+  width: 95%;
   padding: 30px;
   margin: auto;
 }
@@ -64,7 +67,7 @@ input[type='password'] {
   box-sizing: border-box;
   color: inherit;
   padding: 10px 10px;
-  width: 100%;
+  width: 95%;
 }
 
 input:focus {

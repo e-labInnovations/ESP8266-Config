@@ -8,21 +8,37 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="container w-100">
+    <form action="db" method="POST">
+  <div class="container w-100">
       <div class="logo">
         <img src="./logo.png" />
       </div>
       <p>
-        <label for="username">Host Address</label>
-        <input type="text" name="url" placeholder="example.firebaseio.com" />
+        <label for="host">Host Address</label>
+        <input type="text" name="host" id="host" placeholder="example.firebaseio.com" />
       </p>
       <p>
-        <label for="password">Auth Token</label>
-        <input type="text" name="token" />
+        <label for="auth">Auth Token</label>
+        <input type="text" name="auth" id="auth" />
       </p>
       <p>
         <input type="submit" value="Save" class="btn w-100" value="Login" />
       </p>
     </div>
+    </form>
+    <script>
+		window.onload = function() {
+   	 	var xhttp = new XMLHttpRequest();
+   	 	xhttp.onreadystatechange = function() {
+   	    	if (xhttp.readyState == 4 && xhttp.status == "200") {
+   	        	var data = JSON.parse(xhttp.response);
+   				document.getElementById("host").value = data.host;
+   				document.getElementById("auth").value = data.auth;
+   	    	}
+   		};
+   		xhttp.open("GET", "config.json", true);
+   		xhttp.send();
+		};
+	</script>
   </body>
 </html>

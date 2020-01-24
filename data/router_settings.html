@@ -8,21 +8,37 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="container w-100">
+    <form action="router" method="POST">
+  <div class="container w-100">
       <div class="logo">
         <img src="./logo.png" />
       </div>
       <p>
-        <label for="username">SSID</label>
-        <input type="text" name="ssid" />
+        <label for="ssid">SSID</label>
+        <input type="text" name="ssid" id="ssid" />
       </p>
       <p>
-        <label for="password">Password</label>
-        <input type="password" name="password" />
+        <label for="pass">Password</label>
+        <input type="text" name="pass" id="pass" />
       </p>
       <p>
         <input type="submit" value="Save" class="btn w-100" value="Login" />
       </p>
     </div>
+    </form>
+	<script>
+		window.onload = function() {
+   	 	var xhttp = new XMLHttpRequest();
+   	 	xhttp.onreadystatechange = function() {
+   	    	if (xhttp.readyState == 4 && xhttp.status == "200") {
+   	        	var data = JSON.parse(xhttp.response);
+   				document.getElementById("ssid").value = data.ssid;
+   				document.getElementById("pass").value = data.pass;
+   	    	}
+   		};
+   		xhttp.open("GET", "config.json", true);
+   		xhttp.send();
+		};
+	</script>
   </body>
 </html>
